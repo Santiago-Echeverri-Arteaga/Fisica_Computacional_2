@@ -1,0 +1,7 @@
+# Presentaciones en desarrollo
+*.key
+*.pptx
+# Archivos del MAC
+.DS_Store
+.AppleDouble
+.LSOverride
