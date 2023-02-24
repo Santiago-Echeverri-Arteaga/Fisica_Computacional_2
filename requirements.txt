@@ -25,4 +25,5 @@ torchvision==0.14.1
 tqdm==4.64.1
 joblib==1.2.0
 sklearn==0.0.post1
-
+keras
+opencv-python
