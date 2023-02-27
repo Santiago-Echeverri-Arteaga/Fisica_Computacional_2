@@ -7,3 +7,5 @@
 .LSOverride
 # Jupyter Notebook
 .ipynb_checkpoints
+*.png
+*.jpg
