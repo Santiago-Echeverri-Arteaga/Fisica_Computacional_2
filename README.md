@@ -31,3 +31,9 @@ Las librerías necesarias para la ejecución de los códigos se encuentran en el
 11. Tamoghna Ghosh, Shravan Kumar Belagal Math, *Practical Mathematics for AI and Deep Learning: A Concise yet In-Depth Guide on Fundamentals of Computer Vision, NLP, Complex Deep Neural Networks and Machine Learning * BPB publications (2022)
 
 [Enlace de Drive en donde pueden encontrar estos libros](https://drive.google.com/drive/folders/158ffEF6mYpKV4VlLtwHUtHdy_vp-_FkS?usp=share_link) 
+
+<h2> Descargar imágenes para algunos códigos</h2>
+
+[Enlace donde pueden descargar archivios jpg/png necesarios en algunos códigos](https://drive.google.com/drive/folders/1nprt-Se8RfX1ql450DsW9b8sYYo8cmP2?usp=share_link)
+
+El archivo .img lo deben descomprimir en la carpeta img que se encuentra en /Codigos/Intro_to_Deep/PyTorch/img
