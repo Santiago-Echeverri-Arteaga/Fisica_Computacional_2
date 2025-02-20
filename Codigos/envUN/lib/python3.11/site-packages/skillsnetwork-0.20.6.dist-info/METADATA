@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: skillsnetwork
+Version: 0.20.6
+Summary: Library for working with Skills Network
+License: MIT
+Author: Bradley Steinfeld
+Author-email: bs@ibm.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: docs
+Provides-Extra: regular
+Requires-Dist: Sphinx (>=4,<5); extra == "docs"
+Requires-Dist: ibm-cos-sdk (>=2,<3); extra == "regular"
+Requires-Dist: ipython
+Requires-Dist: ipywidgets (>=7,<8)
+Requires-Dist: pydata-sphinx-theme (>=0.9,<0.10); extra == "docs"
+Requires-Dist: requests (>=2,<3)
+Requires-Dist: sphinx-autodoc-typehints (>=1,<2); extra == "docs"
+Requires-Dist: tqdm (>=4,<5)
+Requires-Dist: typing-extensions; (python_version >= "3.5" and python_version < "4.0") and (extra == "regular")
+Project-URL: Bug Tracker, https://github.ibm.com/skills-network/labs/issues/new?assignees=&labels=bug%2C+labs&template=bug.md&title=Short+explanation+of+how+the+user+sees+the+bug+manifest
+Project-URL: Repository, https://github.com/ibm-skills-network/skillsnetwork-python-library
+Project-URL: Skills Network Labs, https://skills.network/lab-tools
+Description-Content-Type: text/markdown
+
+# Skills Network Python Library
+
+A library for working with [Skills Network](https://skills.network) Python labs.
+
+ - [Documentation](https://ibm-skills-network.github.io/skillsnetwork-python-library/)
+
+### Environment Variables
+
+(Required environment variables for testing)
+
+- `CV_STUDIO_TOKEN`
+- `CV_STUDIO_BASE_URL`
+- `IBMCLOUD_API_KEY`
+
+## Contributing
+Please see [CONTRIBUTING.md](https://github.com/ibm-skills-network/skillsnetwork-python-library/blob/main/CONTRIBUTING.md)
+
