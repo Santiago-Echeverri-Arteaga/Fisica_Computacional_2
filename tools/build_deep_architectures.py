@@ -331,7 +331,7 @@ def build_transfer_learning() -> None:
 
             aumentación=keras.Sequential([
                 layers.RandomFlip("horizontal"), layers.RandomRotation(.05),
-            ],name="aumentación")
+            ],name="aumentacion")
             base=Base(weights="imagenet",include_top=False,input_shape=(*tamaño,3))
             base.trainable=False
             entrada=keras.Input((32,32,3))
