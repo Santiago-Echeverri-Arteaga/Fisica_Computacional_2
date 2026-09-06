@@ -1,0 +1,16 @@
+# Entorno mínimo para los notebooks clásicos de la edición 2026-2.
+# En Google Colab estas bibliotecas ya suelen estar disponibles.
+numpy>=2.0,<3
+pandas>=2.2,<4
+scipy>=1.13,<2
+matplotlib>=3.9,<4
+seaborn>=0.13,<1
+scikit-learn>=1.7,<2
+imbalanced-learn>=0.14,<1
+jupyterlab>=4.2,<5
+ipykernel>=6.29,<8
+nbclient>=0.10,<1
+nbformat>=5.10,<6
+
+# Redes neuronales: use requirements-tensorflow-2026.txt o
+# requirements-pytorch-2026.txt según el notebook.

@@ -11,9 +11,14 @@
 
 **Docente:** *Ph.D. Santiago Echeverri Arteaga*
 
-Este GitHub es contiene el material de apoyo del curso Física Computacional 2 orientado en el programa de física en la Universidad del Quindío como electiva profesional. Su propósito es introducir al estudiante de física en el mundo del aprendizaje de máquina no supervisado y el aprendizaje profundo, comprendiendo su fundamentación matemática, la conexión con la física y las aplicaciones que este puede tener. En este repositorio se pueden encontrar, además de las presentaciones de clase, los códigos usados con propósito didáctico. Téngase en cuenta que el enfoque de este curso NO es de carácter computacional y por tanto no se va a ahodar en algunos tecnicismos ni manejo avanzado de librerías.
+> **Edición 2026-2:** la actualización progresiva, el cronograma y los notebooks
+> autocontenidos para Google Colab están en
+> [`curso_2026_2/`](curso_2026_2/README.md). El material histórico se conserva
+> mientras se revisa y migra.
 
-Las librerías necesarias para la ejecución de los códigos se encuentran en el archivo `requirements.txt`. Parte del material de los mismos han sido extraidos de las documentaciones y ejemplos de las librerías o de los cerificados profesionales del IBM "Certificado profesional de IBM Machine Learning
+Este repositorio contiene el material de apoyo del curso Física Computacional 2 del programa de Física de la Universidad del Quindío. Su propósito es introducir al estudiante en el aprendizaje de máquina y el aprendizaje profundo, con énfasis en su fundamentación matemática, sus conexiones con la física y su implementación reproducible.
+
+Las dependencias de la edición 2026-2 están separadas en `requirements-2026.txt`, `requirements-tensorflow-2026.txt` y `requirements-pytorch-2026.txt`. El archivo `requirements.txt` se conserva únicamente para reproducir el material histórico. Parte del material de los códigos históricos fue adaptado de documentación, ejemplos de bibliotecas y certificados profesionales de IBM: "Certificado profesional de IBM Machine Learning
 ", "Programa especializado: Advanced Data Science with IBM" y "Certificado profesional de IBM AI Engineering"
 
 <h2>Bibliografía sugerida </h2>
@@ -29,6 +34,9 @@ Las librerías necesarias para la ejecución de los códigos se encuentran en el
 9. Jay Dawani, *Hands-On Mathematics for Deep Learning* . Packt Publishing (2020)
 10. Jean-Pierre Aubin, *Neural Networks And Qualitative Physics*. Cambridge University Press (1996)
 11. Tamoghna Ghosh, Shravan Kumar Belagal Math, *Practical Mathematics for AI and Deep Learning: A Concise yet In-Depth Guide on Fundamentals of Computer Vision, NLP, Complex Deep Neural Networks and Machine Learning * BPB publications (2022)
+12. Simon J. D. Prince, *Understanding Deep Learning*. MIT Press (2023), [edición abierta y notebooks](https://udlbook.github.io/udlbook/)
+13. Christopher M. Bishop, Hugh Bishop, *Deep Learning: Foundations and Concepts*. Springer (2024)
+14. Sebastian Raschka, *Build a Large Language Model (From Scratch)*. Manning (2024)
 
 [Enlace de Drive en donde pueden encontrar estos libros](https://drive.google.com/drive/folders/158ffEF6mYpKV4VlLtwHUtHdy_vp-_FkS?usp=share_link) 
 

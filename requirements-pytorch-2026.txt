@@ -1,0 +1,4 @@
+-r requirements-2026.txt
+
+torch>=2.7,<3
+torchvision>=0.22,<1

@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fisica-computacional-2"
+version = "0.1.0"
+description = "Material reproducible para Física Computacional 2, Universidad del Quindío"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "numpy>=2.0,<3",
+  "pandas>=2.2,<4",
+  "scipy>=1.13,<2",
+  "matplotlib>=3.9,<4",
+  "seaborn>=0.13,<1",
+  "scikit-learn>=1.7,<2",
+  "imbalanced-learn>=0.14,<1",
+]
+
+[project.optional-dependencies]
+notebooks = [
+  "jupyterlab>=4.2,<5",
+  "ipykernel>=6.29,<8",
+  "nbclient>=0.10,<1",
+  "nbformat>=5.10,<6",
+]
+test = [
+  "pytest>=8.3,<10",
+]
+tensorflow = [
+  "tensorflow>=2.19,<3",
+]
+pytorch = [
+  "torch>=2.7,<3",
+  "torchvision>=0.22,<1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools]
+py-modules = []
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

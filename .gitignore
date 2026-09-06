@@ -11,3 +11,19 @@
 *.jpg
 *.zip
 *.tgz
+
+# Entornos y archivos generados (curso 2026-2)
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+curso_2026_2/.data/
+curso_2026_2/.artifacts/
+*.keras
+*.h5
+*.pt
+*.pth

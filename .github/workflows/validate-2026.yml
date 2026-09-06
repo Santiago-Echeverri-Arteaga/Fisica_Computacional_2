@@ -1,0 +1,66 @@
+name: Validar notebooks 2026-2
+
+on:
+  push:
+    paths:
+      - "curso_2026_2/**"
+      - "tools/**"
+      - "tests/**"
+      - "requirements-2026.txt"
+      - "requirements-tensorflow-2026.txt"
+      - "requirements-pytorch-2026.txt"
+      - "pyproject.toml"
+  pull_request:
+    paths:
+      - "curso_2026_2/**"
+      - "tools/**"
+      - "tests/**"
+      - "requirements-2026.txt"
+      - "requirements-tensorflow-2026.txt"
+      - "requirements-pytorch-2026.txt"
+      - "pyproject.toml"
+
+jobs:
+  base:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalar entorno mínimo
+        run: python -m pip install -r requirements-2026.txt pytest
+      - name: Validar estructura
+        run: python -m pytest
+      - name: Ejecutar notebooks
+        run: python tools/validate_notebooks.py --execute --tiers base --timeout 600
+
+  tensorflow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalar TensorFlow
+        run: python -m pip install -r requirements-tensorflow-2026.txt
+      - name: Ejecutar notebooks TensorFlow
+        run: python tools/validate_notebooks.py --execute --tiers tensorflow tensorflow-network --timeout 1200
+
+  pytorch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalar PyTorch
+        run: python -m pip install -r requirements-pytorch-2026.txt
+      - name: Ejecutar notebooks PyTorch
+        run: python tools/validate_notebooks.py --execute --tiers pytorch --timeout 1200
