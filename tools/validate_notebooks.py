@@ -13,7 +13,9 @@ COURSE = ROOT / "curso_2026_2"
 
 
 def notebook_paths() -> list[Path]:
-    return sorted(COURSE.rglob("*.ipynb"))
+    # Las ejecuciones locales y checkpoints no forman parte de la colección fuente.
+    return sorted(path for path in COURSE.rglob("*.ipynb")
+                  if not any(part.startswith('.') for part in path.relative_to(COURSE).parts))
 
 
 def validate_structure(path: Path) -> None:
@@ -69,7 +71,7 @@ def main() -> None:
         "--tiers",
         nargs="+",
         default=["base"],
-        help="tiers a ejecutar: base, tensorflow, pytorch, tensorflow-network o all",
+        help="tiers: base, tensorflow, pytorch, tensorflow-network, pytorch-network, tensorflow-pytorch-network o all",
     )
     parser.add_argument("--timeout", type=int, default=600, help="segundos máximos por celda")
     args = parser.parse_args()

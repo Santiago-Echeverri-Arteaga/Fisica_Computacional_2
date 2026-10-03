@@ -1,10 +1,27 @@
 # Datos abiertos para extensiones y proyectos
 
-Los notebooks base evitan descargas para que la clase sea estable. Los proyectos
-pueden sustituir las simulaciones por datos abiertos después de comprobar licencia,
-tamaño, esquema y unidad correcta de partición.
+El bloque feedforward usa datos descargables desde las APIs o archivos oficiales.
+Las simulaciones se conservan para verificar mecanismos y para dinámica física.
+Las descargas requieren Internet en la primera ejecución y no requieren cuenta.
 
-| Fuente | Aplicación posible | Precaución docente |
+## Datos usados en las prácticas
+
+| Dataset | Tamaño y tarea | Carga y uso | Partición y licencia |
+|---|---|---|---|
+| [Fashion-MNIST](https://keras.io/api/datasets/fashion_mnist/) | 60 000 + 10 000 imágenes, 28×28, diez clases | `keras.datasets.fashion_mnist.load_data()` en 30 y 50; `torchvision.datasets.FashionMNIST` en 41 | test oficial; validación estratificada dentro de desarrollo; Zalando SE, MIT |
+| [Superconductivty Data, UCI 464](https://archive.ics.uci.edu/dataset/464/superconductivty+data) | 21 263 filas, 81 características, regresión de Tc; ZIP ~8 MB | archivo oficial con `train.csv` y `unique_m.csv`, notebook 36 | agrupar por fórmula exacta; Hamidieh (2018), DOI 10.24432/C53P47, CC BY 4.0 |
+
+El 30 tiene modos `clase` y `completo`; ambos preservan el test oficial. El 36
+prepara los datos UCI de superconductividad para la alternativa A. La alternativa B
+no descarga bases: usa ejemplos y resultados hipotéticos claramente identificados. No comparar puntuaciones entre
+notebooks como si hubieran usado idéntico presupuesto. En UCI se imprime SHA256
+del ZIP y se comprueba alineación de las temperaturas entre ambos archivos.
+Separar por fórmula exacta reduce fuga por material repetido, pero no garantiza
+independencia entre familias químicas similares.
+
+## Extensiones científicas
+
+| Fuente | Aplicación posible | Condiciones de uso |
 |---|---|---|
 | [CERN Open Data](https://opendata.cern.ch/) | clasificación de eventos, jets, Higgs y tracking | empezar por muestras preparadas para ML; distinguir simulación de datos reales |
 | [Higgs Boson Machine Learning Challenge](https://www.kaggle.com/competitions/higgs-boson) | desbalance, boosting, calibración y significancia | Kaggle puede requerir cuenta; documentar la métrica física AMS |

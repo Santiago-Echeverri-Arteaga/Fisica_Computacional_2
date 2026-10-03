@@ -24,14 +24,12 @@ from build_deep_architectures import (
 )
 from build_initial_notebooks import build_evaluation_notebook, build_knn_svm_notebook
 from build_neural_foundations import (
-    build_activations,
     build_gradient_backprop,
     build_losses_optimizers_regularization,
     build_neuron_feedforward,
-    build_pytorch_mlp,
-    build_tensorflow_mlp,
 )
 from build_topics_project import build_project_template, build_reinforcement_learning, build_transformers_llm
+from build_feedforward_practice import build_workshop
 
 
 BUILDERS = [
@@ -47,11 +45,9 @@ BUILDERS = [
     build_kmeans_gmm,
     build_hierarchical,
     build_neuron_feedforward,
-    build_activations,
     build_gradient_backprop,
     build_losses_optimizers_regularization,
-    build_tensorflow_mlp,
-    build_pytorch_mlp,
+    build_workshop,
     build_convolution_numpy,
     build_lenet_alexnet,
     build_architecture_zoo,

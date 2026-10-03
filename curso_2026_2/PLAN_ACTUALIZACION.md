@@ -1,8 +1,8 @@
 # Plan de actualización del repositorio y del curso
 
-> **Estado:** colección inicial completa. Los 29 notebooks planeados están
-> implementados; las siguientes iteraciones deben incorporar retroalimentación de
-> clase, presentaciones del docente y datasets elegidos para los proyectos.
+> **Estado:** 27 notebooks. El bloque 03 comienza con una sesión práctica integrada
+> de 120 minutos; la teoría feedforward es prerrequisito. El trabajo con datos
+> reales y la comparación con ML clásico guían las prácticas.
 
 ## 1. Decisiones curriculares
 
@@ -35,17 +35,21 @@ se conectan con experimentos computacionales reproducibles.
 | 23 sep. | Explicación global/local y modelos sustitutos | Notebook 15 |
 | 29 sep. | Parcial 1 | Evaluación concertada |
 | 30 sep. | DBSCAN y Mean-Shift | Notebook 20 |
-| 6 oct. | K-means, mezclas gaussianas y selección | Notebook 21 |
-| 7 oct. | Agrupamiento jerárquico | Notebook 22 |
-| 13 oct. | Neurona, capas densas y activaciones | Notebooks 30–31 |
-| 14 oct. | Descenso de gradiente y retropropagación | Notebook 32 |
+| 6 oct. | Tensores, frameworks, MLP y activaciones propias | Sólo notebook 30, 120 min |
+| 7 oct. | Taller de programación feedforward | A: notebook 36; B: guía para celular y papel |
+| 13 oct. | Profundización en activaciones y diagnóstico | Activaciones del 30; consulta 32 |
+| 14 oct. | Regresión con datos físicos reales | Taller y datos del 36 |
 | 20 oct. | Parcial 2 | Evaluación concertada |
 | 21 oct. | Pérdidas, optimizadores y regularización | Notebook 33 |
-| 27 oct. | Red feedforward en TensorFlow y PyTorch | Notebooks 34–35 |
+| 27 oct. | Cierre de experimentos y comparación con ML | Resultados y errores del taller |
 | 28 oct. | CNN: convolución, LeNet-5 y AlexNet | Notebooks 40–41 |
 | 3 nov. | VGG, ResNet, Inception, FractalNet y transferencia | Notebooks 42–43 |
 | 4 nov. | RNN, LSTM, GRU y Seq2Seq | Notebooks 60–61 |
 | 10–18 nov. | Sustentaciones; síntesis de AE/GAN, RL y transformers | Notebooks 50–51, 62, 70–71 |
+
+Los notebooks 21–22 quedan como material de consulta de clustering; su ubicación
+presencial se ajusta al avance del curso. Las fechas posteriores al taller son
+orientativas y no cambian el acta de evaluación.
 
 Las dos clases de recuperación grabadas se reservan para (1) laboratorio de
 activaciones/retropropagación y (2) autoencoders/GAN. Esto evita sacrificar la
@@ -76,15 +80,15 @@ un experimento pequeño y límites; no entrenamiento de un modelo fundacional.
 - `21_kmeans_gmm`.
 - `22_clustering_jerarquico`.
 
-### 03 — Fundamentos de redes neuronales (6)
+### 03 — Fundamentos de redes neuronales (4)
 
-- `30_neurona_y_feedforward_desde_cero`.
-- `31_activaciones_diseno_y_comparacion`: incluye activaciones creadas por el
-  estudiante, derivadas, estabilidad numérica y ablación controlada.
+- `30_neurona_y_feedforward_desde_cero`: sesión única de dos horas, Fashion-MNIST,
+  TensorFlow desde variables, Keras, PyTorch y activaciones propias.
 - `32_gradiente_y_backpropagation`.
 - `33_perdidas_optimizadores_regularizacion`.
-- `34_mlp_tensorflow`.
-- `35_mlp_pytorch`.
+- `36_taller_120_minutos`: inicio de la alternativa A de programación;
+  `TALLER_FEEDFORWARD.md` describe ambas alternativas de dos horas y
+  `TALLER_SIN_COMPUTADOR.md` desarrolla B, sin programación.
 
 ### 04 — Visión profunda (4)
 

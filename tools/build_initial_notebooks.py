@@ -61,6 +61,15 @@ def write_notebook(
     tier: str = "base",
     accelerator: str = "cpu",
 ) -> None:
+    from course_routes import route_for
+
+    route = route_for(relative_path)
+    if route:
+        cells.insert(1, md(f"## {route[0]}\n\n{route[1]}"))
+    if 'network' in tier:
+        cells[0]['source'] = [line.replace(
+            'CPU; datos incluidos o generados en memoria.',
+            'CPU; descarga de datos por Internet (caché local).') for line in cells[0]['source']]
     destination = COURSE / relative_path
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(

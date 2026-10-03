@@ -111,17 +111,20 @@ def build_lenet_alexnet() -> None:
             **Requiere PyTorch.** LeNet-5 fijó el patrón convolución–submuestreo–capa
             densa. AlexNet escaló profundidad, datos y cómputo, usando ReLU, GPU,
             augmentación y dropout. Entrenaremos una adaptación de LeNet sobre los
-            dígitos 8×8 incluidos en scikit-learn, reescalados a 32×32. AlexNet se
+            datos Fashion-MNIST (Zalando SE, licencia MIT), con padding de 28×28 a 32×32.
+            Se requieren Internet y torchvision. El modo clase usa 12 000/3 000 imágenes. AlexNet se
             inspecciona sin entrenarlo para no convertir la clase en una espera.
+            [Fuente y API de carga](https://docs.pytorch.org/vision/stable/generated/torchvision.datasets.FashionMNIST.html).
             """
         ),
         code(
             """
+            from pathlib import Path
             import matplotlib.pyplot as plt
             import numpy as np
             import torch
             import torch.nn.functional as F
-            from sklearn.datasets import load_digits
+            from torchvision.datasets import FashionMNIST
             from sklearn.metrics import ConfusionMatrixDisplay, accuracy_score
             from sklearn.model_selection import train_test_split
             from torch import nn
@@ -131,13 +134,20 @@ def build_lenet_alexnet() -> None:
             SEMILLA = 42
             torch.manual_seed(SEMILLA)
             dispositivo = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-            datos = load_digits()
-            X = torch.tensor(datos.images[:,None]/16.0, dtype=torch.float32)
-            X = F.interpolate(X, size=(32,32), mode="bilinear", align_corners=False)
-            y = torch.tensor(datos.target, dtype=torch.long)
-            índices = np.arange(len(y))
-            dev, test = train_test_split(índices, test_size=.2, stratify=y, random_state=SEMILLA)
-            train, val = train_test_split(dev, test_size=.2, stratify=y[dev], random_state=SEMILLA)
+            # Fuente oficial HTTPS; el mirror HTTP de torchvision puede no responder.
+            FashionMNIST.mirrors = [
+                "https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/data/fashion/"
+            ]
+            datos = FashionMNIST(root=str(Path.home()/'.cache'/'fc2'), train=True, download=True)
+            prueba = FashionMNIST(root=str(Path.home()/'.cache'/'fc2'), train=False, download=True)
+            y = datos.targets
+            train, val = train_test_split(np.arange(len(y)), test_size=.2, stratify=y, random_state=SEMILLA)
+            train, _ = train_test_split(train, train_size=12000, stratify=y[train], random_state=SEMILLA)
+            val, _ = train_test_split(val, train_size=3000, stratify=y[val], random_state=SEMILLA)
+            X = F.pad(datos.data[:,None].float()/255.0, (2,2,2,2))
+            X_test = F.pad(prueba.data[:,None].float()/255.0, (2,2,2,2))
+            y_test = prueba.targets
+            torch.set_num_threads(2)
             loader_train = DataLoader(TensorDataset(X[train],y[train]), batch_size=64, shuffle=True, generator=torch.Generator().manual_seed(SEMILLA))
             loader_val = DataLoader(TensorDataset(X[val],y[val]), batch_size=256)
             """
@@ -160,7 +170,7 @@ def build_lenet_alexnet() -> None:
             modelo = LeNet5().to(dispositivo)
             criterio = nn.CrossEntropyLoss()
             optimizador = torch.optim.Adam(modelo.parameters(), lr=1e-3)
-            for época in range(12):
+            for época in range(4):
                 modelo.train()
                 for xb,yb in loader_train:
                     xb,yb = xb.to(dispositivo),yb.to(dispositivo)
@@ -169,15 +179,17 @@ def build_lenet_alexnet() -> None:
                 modelo.eval()
                 with torch.no_grad():
                     aciertos=sum((modelo(xb.to(dispositivo)).argmax(1).cpu()==yb).sum().item() for xb,yb in loader_val)
-                if época in [0,3,7,11]: print(época+1, aciertos/len(val))
+                if época in [0,1,2,3]: print(época+1, aciertos/len(val))
             """
         ),
         code(
             """
             modelo.eval()
-            with torch.no_grad(): pred=modelo(X[test].to(dispositivo)).argmax(1).cpu().numpy()
-            print("accuracy test:", accuracy_score(y[test],pred))
-            ConfusionMatrixDisplay.from_predictions(y[test],pred,cmap="Blues")
+            with torch.no_grad():
+                pred=torch.cat([modelo(xb.to(dispositivo)).argmax(1).cpu()
+                                for (xb,) in DataLoader(TensorDataset(X_test), batch_size=256)]).numpy()
+            print("accuracy test:", accuracy_score(y_test,pred))
+            ConfusionMatrixDisplay.from_predictions(y_test,pred,cmap="Blues")
             plt.show()
 
             alex = alexnet(weights=None)
@@ -195,7 +207,7 @@ def build_lenet_alexnet() -> None:
             """
         ),
     ]
-    write_notebook(path, cells, tier="pytorch")
+    write_notebook(path, cells, tier="pytorch-network")
 
 
 def build_architecture_zoo() -> None:
@@ -378,7 +390,8 @@ def build_autoencoder() -> None:
             $\hat x=g_\phi(z)$ minimizan reconstrucción. Un cuello de botella fuerza
             compresión, pero no garantiza variables físicamente interpretables. La
             detección de anomalías presupone que el entrenamiento representa la
-            normalidad.
+            normalidad. Los datos son Fashion-MNIST de Zalando SE (MIT),
+            [disponibles en Keras](https://keras.io/api/datasets/fashion_mnist/).
             """
         ),
         code(
@@ -386,24 +399,28 @@ def build_autoencoder() -> None:
             import matplotlib.pyplot as plt
             import numpy as np
             import tensorflow as tf
-            from sklearn.datasets import load_digits
             from sklearn.model_selection import train_test_split
             from tensorflow import keras
             from tensorflow.keras import layers
 
             keras.utils.set_random_seed(42)
-            X=load_digits().data.astype("float32")/16.0
-            X_dev,X_test=train_test_split(X,test_size=.2,random_state=42)
-            X_train,X_val=train_test_split(X_dev,test_size=.2,random_state=42)
-            entrada=keras.Input((64,))
+            (imagenes, etiquetas), (imagenes_test, _) = keras.datasets.fashion_mnist.load_data()
+            train, val = train_test_split(np.arange(len(etiquetas)), test_size=.2,
+                                        stratify=etiquetas, random_state=42)
+            train, _ = train_test_split(train, train_size=12000, stratify=etiquetas[train], random_state=42)
+            val, _ = train_test_split(val, train_size=3000, stratify=etiquetas[val], random_state=42)
+            X_train = imagenes[train].reshape(-1,784).astype('float32')/255
+            X_val = imagenes[val].reshape(-1,784).astype('float32')/255
+            X_test = imagenes_test.reshape(-1,784).astype('float32')/255
+            entrada=keras.Input((784,))
             z=layers.Dense(32,activation="relu")(entrada); z=layers.Dense(8,name="latente")(z)
-            x=layers.Dense(32,activation="relu")(z); salida=layers.Dense(64,activation="sigmoid")(x)
+            x=layers.Dense(32,activation="relu")(z); salida=layers.Dense(784,activation="sigmoid")(x)
             autoencoder=keras.Model(entrada,salida)
             encoder=keras.Model(entrada,z)
             autoencoder.compile(optimizer="adam",loss="mse")
-            historia=autoencoder.fit(X_train,X_train,validation_data=(X_val,X_val),epochs=80,batch_size=64,verbose=0,
+            historia=autoencoder.fit(X_train,X_train,validation_data=(X_val,X_val),epochs=12,batch_size=256,verbose=0,
                                      callbacks=[keras.callbacks.EarlyStopping(patience=8,restore_best_weights=True)])
-            print("dimensión",X.shape[1],"→",encoder.output_shape[-1],"| test MSE",autoencoder.evaluate(X_test,X_test,verbose=0))
+            print("dimensión",X_train.shape[1],"→",encoder.output_shape[-1],"| test MSE",autoencoder.evaluate(X_test,X_test,verbose=0))
             """
         ),
         code(
@@ -411,7 +428,7 @@ def build_autoencoder() -> None:
             reconstruidas=autoencoder.predict(X_test[:10],verbose=0)
             fig,axes=plt.subplots(2,10,figsize=(14,3))
             for i in range(10):
-                axes[0,i].imshow(X_test[i].reshape(8,8),cmap="gray"); axes[1,i].imshow(reconstruidas[i].reshape(8,8),cmap="gray")
+                axes[0,i].imshow(X_test[i].reshape(28,28),cmap="gray"); axes[1,i].imshow(reconstruidas[i].reshape(28,28),cmap="gray")
                 axes[0,i].axis("off"); axes[1,i].axis("off")
             axes[0,0].set_ylabel("original"); axes[1,0].set_ylabel("reconstrucción")
             plt.show()
@@ -431,7 +448,7 @@ def build_autoencoder() -> None:
             """
         ),
     ]
-    write_notebook(path, cells, tier="tensorflow")
+    write_notebook(path, cells, tier="tensorflow-network")
 
 
 def build_gan() -> None:
@@ -547,15 +564,16 @@ def build_rnn_lstm_gru() -> None:
                 modelo.compile(optimizer=keras.optimizers.Adam(1e-3),loss="mse")
                 hist=modelo.fit(X[train],y[train],validation_data=(X[val],y[val]),epochs=35,batch_size=64,verbose=0,
                                 callbacks=[keras.callbacks.EarlyStopping(patience=5,restore_best_weights=True)])
-                mse=modelo.evaluate(X[test],y[test],verbose=0)
-                filas.append({"modelo":nombre,"parámetros":modelo.count_params(),"MSE_test":mse,"épocas":len(hist.history["loss"])})
+                mse=modelo.evaluate(X[val],y[val],verbose=0)
+                filas.append({"modelo":nombre,"parámetros":modelo.count_params(),"MSE_val":mse,"épocas":len(hist.history["loss"])})
                 modelos[nombre]=modelo
             display(pd.DataFrame(filas).set_index("modelo"))
             """
         ),
         code(
             """
-            mejor=min(filas,key=lambda f:f["MSE_test"])["modelo"]
+            mejor=min(filas,key=lambda f:f["MSE_val"])["modelo"]
+            print("Test final del modelo elegido:", modelos[mejor].evaluate(X[test], y[test], verbose=0))
             pred=modelos[mejor].predict(X[test],verbose=0).ravel()
             plt.scatter(y[test],pred,alpha=.5); límites=[min(y[test].min(),pred.min()),max(y[test].max(),pred.max())]
             plt.plot(límites,límites,"k--"); plt.xlabel("siguiente valor real"); plt.ylabel("predicción"); plt.title(mejor); plt.show()

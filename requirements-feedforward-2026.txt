@@ -1,0 +1,3 @@
+# Sesión integrada 30: se necesitan ambos frameworks en el mismo runtime.
+-r requirements-tensorflow-2026.txt
+-r requirements-pytorch-2026.txt
