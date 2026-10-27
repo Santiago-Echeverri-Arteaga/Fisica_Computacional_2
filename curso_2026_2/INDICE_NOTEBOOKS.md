@@ -1,5 +1,12 @@
 # Índice de notebooks 2026-2
 
+**Ruta autónoma de cuatro horas:** [guía y entregables](trabajo_autonomo_4h/README.md).
+
+| Notebook autónomo | Tiempo | Entorno |
+|---|---:|---|
+| [01 · Pillow, OpenCV y CNN](trabajo_autonomo_4h/01_pillow_opencv_cnn.ipynb) | 120 min | TensorFlow, Internet, GPU opcional |
+| [02 · Transferencia y redes personalizadas](trabajo_autonomo_4h/02_transfer_inception_resnet152_personalizadas.ipynb) | 120 min | TensorFlow, Internet, GPU opcional; CPU reducido |
+
 Todos son autocontenidos y tienen distintivo de Colab. La ruta del martes es sólo el **30**; el miércoles se elige una
 [alternativa de taller](03_redes_fundamentos/TALLER_FEEDFORWARD.md). Los módulos 04–08 son posteriores.
 La [alternativa B sin programación](03_redes_fundamentos/TALLER_SIN_COMPUTADOR.md)

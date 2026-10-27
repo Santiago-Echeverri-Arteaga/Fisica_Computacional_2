@@ -2,3 +2,8 @@
 
 # Rango conservador compatible con Python 3.11–3.13 y Keras moderno.
 tensorflow>=2.19,<3
+
+# Visión: Pillow y OpenCV sin interfaz gráfica (Colab ya los incluye).
+Pillow>=10,<13
+opencv-python-headless>=4.10,<5
+pyarrow>=16,<25

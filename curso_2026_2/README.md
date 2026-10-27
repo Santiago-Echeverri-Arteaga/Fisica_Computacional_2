@@ -18,6 +18,15 @@ Google Colab sin descargas manuales ni configuración de rutas locales.
 - **Desde 04:** visión, generativos y secuencias son unidades posteriores.
   Sus guías distinguen ejemplos de mecanismo, benchmarks y aplicaciones físicas.
 
+## Trabajo autónomo de visión: cuatro horas
+
+La carpeta [trabajo_autonomo_4h](trabajo_autonomo_4h/README.md) ofrece dos notebooks
+de 120 minutos para estudiar sin recorrer en detalle los módulos 04 en adelante:
+Pillow/OpenCV y CNN sobre fotografías; transferencia con InceptionV3 y ResNet152,
+y una red pequeña de ramas y conexiones residuales construida a mano.
+Incluye retos, pistas, entregables y configuración reducida para Colab gratuito.
+Esta ruta concentra visión; no sustituye los contenidos de generativos, secuencias y refuerzo.
+
 ## Principios de diseño
 
 - **Matemática antes de la API:** la teoría ya estudiada se conecta con formas de tensores,
@@ -34,7 +43,7 @@ Google Colab sin descargas manuales ni configuración de rutas locales.
 
 ## Contenido completo
 
-La edición contiene 27 notebooks:
+La edición contiene 29 notebooks:
 
 | Módulo | Notebooks | Enfoque |
 |---|---:|---|
@@ -47,6 +56,7 @@ La edición contiene 27 notebooks:
 | 06 Secuencias | 3 | RNN/LSTM/GRU, Seq2Seq-atención y Lorenz |
 | 07 Temas actuales | 2 | Q-learning y transformer/GPT diminuto |
 | 08 Proyecto | 1 | plantilla reproducible y lista de control |
+| Trabajo autónomo 4 h | 2 | Pillow, OpenCV, CNN, InceptionV3, ResNet152 y red personalizada |
 
 El [índice de notebooks](INDICE_NOTEBOOKS.md) incluye enlaces directos, duración,
 framework y producto esperado.

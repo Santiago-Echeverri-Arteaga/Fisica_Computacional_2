@@ -20,7 +20,9 @@ def test_execution_artifacts_are_not_source_notebooks(tmp_path, monkeypatch) -> 
 
 def test_complete_notebook_collection_exists() -> None:
     paths = {path.name for path in notebook_paths()}
-    assert len(paths) == 27
+    assert len(paths) == 29
+    assert "01_pillow_opencv_cnn.ipynb" in paths
+    assert "02_transfer_inception_resnet152_personalizadas.ipynb" in paths
     assert "36_taller_120_minutos.ipynb" in paths
     assert "00_protocolo_evaluacion.ipynb" in paths
     assert "11_knn_svm.ipynb" in paths

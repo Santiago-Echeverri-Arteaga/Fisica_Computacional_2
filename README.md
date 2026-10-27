@@ -16,6 +16,10 @@
 > [`curso_2026_2/`](curso_2026_2/README.md). El material histórico se conserva
 > mientras se revisa y migra.
 
+**Nuevo: [trabajo autónomo de visión — 4 horas](curso_2026_2/trabajo_autonomo_4h/README.md).**
+Dos notebooks para Colab gratuito: Pillow/OpenCV y CNN con fotos reales; transferencia
+con InceptionV3 y ResNet152 y diseño manual de una red con ramas y atajos residuales.
+
 Este repositorio contiene el material de apoyo del curso Física Computacional 2 del programa de Física de la Universidad del Quindío. Su propósito es introducir al estudiante en el aprendizaje de máquina y el aprendizaje profundo, con énfasis en su fundamentación matemática, sus conexiones con la física y su implementación reproducible.
 
 Las dependencias de la edición 2026-2 están separadas en `requirements-2026.txt`, `requirements-tensorflow-2026.txt` y `requirements-pytorch-2026.txt`. El archivo `requirements.txt` se conserva únicamente para reproducir el material histórico. Parte del material de los códigos históricos fue adaptado de documentación, ejemplos de bibliotecas y certificados profesionales de IBM: "Certificado profesional de IBM Machine Learning

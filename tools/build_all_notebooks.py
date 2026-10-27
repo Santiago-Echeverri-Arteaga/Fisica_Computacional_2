@@ -1,5 +1,8 @@
 """Regenera la colección completa de notebooks sin resultados almacenados."""
 
+from pathlib import Path
+import runpy
+
 from build_classical_notebooks import (
     build_boosting_stacking,
     build_dbscan_meanshift,
@@ -66,4 +69,5 @@ BUILDERS = [
 if __name__ == "__main__":
     for builder in BUILDERS:
         builder()
-    print(f"{len(BUILDERS)} notebooks regenerados.")
+    runpy.run_path(str(Path(__file__).with_name("build_autonomous_vision.py")), run_name="__main__")
+    print(f"{len(BUILDERS) + 2} notebooks regenerados.")
