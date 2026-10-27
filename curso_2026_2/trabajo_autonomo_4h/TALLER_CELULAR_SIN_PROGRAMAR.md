@@ -1,8 +1,7 @@
 # Taller: auditar y diseñar un sistema de visión con celular y papel
 
 **Dedicación estimada: cuatro horas para la ruta esencial.** La teoría matemática
-ya vista es suficiente; no se exige experiencia programando. La dificultad es
-ligeramente mayor que seguir los ejemplos porque debes justificar y corregir decisiones.
+ya vista es suficiente; no se exige experiencia programando.
 Necesitas celular con navegador, calculadora, papel y lápiz; puedes escribir tus
 respuestas en una aplicación de notas. No necesitas computador, Colab, instalaciones,
 cuentas ni ejecutar código. Se puede realizar como alternativa a los dos notebooks
@@ -10,9 +9,8 @@ o como taller adicional después de ellos. Las cuatro horas corresponden a este 
 
 La preparación buscada es similar en interpretación de imágenes, seguimiento de
 operaciones, diseño de CNN y evaluación de transferencia. Programar, depurar y medir
-tiempos reales requiere posteriormente práctica con los notebooks. Aquí la dificultad
-adicional está en justificar decisiones, detectar errores y resolver restricciones,
-no en memorizar nombres de funciones.
+tiempos reales requiere posteriormente práctica con los notebooks. En este taller
+justificarás decisiones, detectarás errores y resolverás restricciones.
 
 ## Ruta y forma de trabajo
 

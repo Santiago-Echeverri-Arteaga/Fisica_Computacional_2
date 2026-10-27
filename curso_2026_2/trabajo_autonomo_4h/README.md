@@ -16,8 +16,7 @@ generativos, secuencias y refuerzo quedan como material de consulta posterior.
 ### Alternativa con celular e internet, sin programar
 
 El [taller con celular y papel](TALLER_CELULAR_SIN_PROGRAMAR.md) dura **cuatro horas**
-y tiene una dificultad ligeramente mayor: exige calcular, auditar errores y diseñar
-bajo restricciones. Incluye observación de fotografías reales, filtros a mano,
+y propone calcular, auditar errores y diseñar bajo restricciones. Incluye observación de fotografías reales, filtros a mano,
 conteo de parámetros, un bloque Inception-Residual, transferencia y evaluación sin fuga.
 No requiere ejecutar los notebooks ni instalar aplicaciones. Se entrega con fotos
 de las respuestas o un documento escrito en el celular.
@@ -89,22 +88,6 @@ Las celdas de retos tienen tablas para registrar observaciones; no bloquean “E
 La selección se hace con validación. El test se consulta al final y no se usa para afinar modelos.
 
 ## Referencias y mantenimiento
-
-### Dificultad y alcance de la revisión
-
-Consulta la [revisión de dificultad, cobertura y comprobaciones](VERIFICACION.md).
-
-La ruta programada empieza por ejemplos completos y deja dos modificaciones puntuales:
-cambiar `FILTROS_INICIALES` y `USAR_ATAJO`. No exige implementar bucles de entrenamiento
-desde cero. Ejecuta hasta los retos, realiza la comparación con validación y después
-continúa al test final. La ruta con celular tiene ejemplos resueltos con otros números
-y conserva como obligatorios los conceptos de todos los temas; cálculos repetitivos
-y ampliaciones de memoria quedan opcionales.
-
-Las cuatro horas por ruta son una estimación para estudiantes con la teoría matemática
-ya estudiada, incluyendo lectura y autocorrección; no una medición con estudiantes.
-No se espera hacer ambas rutas, todas las extensiones y ambos datasets en cuatro horas.
-La preparación conceptual del taller es comparable; practicar código requiere los notebooks.
 
 - [Pillow: Image](https://pillow.readthedocs.io/en/stable/reference/Image.html).
 - [OpenCV: espacios de color](https://docs.opencv.org/4.x/df/d9d/tutorial_py_colorspaces.html).
