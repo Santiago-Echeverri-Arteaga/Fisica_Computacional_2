@@ -28,3 +28,6 @@ curso_2026_2/.artifacts/
 *.h5
 *.pt
 *.pth
+
+# Material docente local: soluciones y copias con respuestas, nunca publicar.
+/material_docente_local/

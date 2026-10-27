@@ -34,7 +34,7 @@ El taller desarrolla razonamiento comparable; no certifica destreza de programac
 | Transfer learning | InceptionV3 y ResNet152 con pesos ImageNet, preprocesamiento específico y cabezas nuevas |
 | Redes diseñadas a mano | Ramas multiescala, proyección 1×1, concatenación, suma residual y ablación |
 | Recursos gratuitos | CPU reducido automático, lotes pequeños, imágenes 96×96 y bases congeladas secuenciales |
-| Aprendizaje autónomo | Instrucciones de ejecución, ejemplos, pistas, retos y solucionario del taller |
+| Aprendizaje autónomo | Instrucciones de ejecución, ejemplos guiados, ficha de consulta y retos |
 
 ## Alcance técnico de las comprobaciones
 
@@ -51,8 +51,9 @@ aprovechó datos descargados. La prueba de 126 s descargó los pesos; la de CIFA
 reutilizó esos pesos y descargó su archivo Parquet. Son tiempos del equipo local,
 con distintos estados de caché, no una comparación de rendimiento entre datasets.
 La estructura y sintaxis de los 29 notebooks y las tres pruebas del repositorio
-también pasaron. Se comprobaron los enlaces internos, las cuentas del solucionario
-y la ausencia de rúbrica y tiempos por sección en el taller.
+también pasaron. Se comprobaron los enlaces internos, las cuentas de los ejercicios
+y la ausencia de rúbrica y tiempos por sección en el taller. La versión pública
+no incluye los solucionarios ni los bloques de respuestas de los notebooks.
 
 La ejecución se verifica localmente en CPU con Python 3.13.5 y TensorFlow 2.21.0,
 usando descargas reales y pesos ImageNet. El programa `tools/check_autonomous_vision.py`

@@ -22,8 +22,8 @@ conteo de parámetros, un bloque Inception-Residual, transferencia y evaluación
 No requiere ejecutar los notebooks ni instalar aplicaciones. Se entrega con fotos
 de las respuestas o un documento escrito en el celular.
 
-Tiene [solucionario razonado](SOLUCIONARIO_TALLER_CELULAR.md), ejemplos resueltos
-y referencias oficiales. Puede usarse como alternativa a la ruta programada o como
+Tiene ejemplos guiados con números distintos a los ejercicios y referencias
+oficiales. Puede usarse como alternativa a la ruta programada o como
 actividad adicional de cuatro horas. Prepara habilidades de análisis y diseño similares;
 la ejecución y depuración se practican posteriormente con los notebooks.
 

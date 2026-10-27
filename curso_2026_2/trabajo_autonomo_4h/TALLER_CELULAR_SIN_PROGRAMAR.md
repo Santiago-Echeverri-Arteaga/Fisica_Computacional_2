@@ -26,7 +26,7 @@ no en memorizar nombres de funciones.
 | E. Auditar un experimento | Particiones, métricas y correcciones |
 | F. Defender una propuesta | Protocolo y conclusión |
 
-Trabaja primero sin consultar el [solucionario razonado](SOLUCIONARIO_TALLER_CELULAR.md).
+Resuelve cada ejercicio mostrando tu procedimiento y justificando tus decisiones.
 Si te atascas, anota qué te falta, usa el ejemplo o una pista y continúa.
 Al corregir, conserva el intento inicial y explica el cambio. Internet sirve para
 consultar documentación y observar fotografías; copiar definiciones no resuelve los casos.
@@ -328,6 +328,6 @@ Antes de terminar, comprueba que cada operación muestre entrada y salida, que l
 sumas residuales tengan formas compatibles y que ninguna decisión use test para
 seleccionar. Justifica tu elección de arquitectura y reconoce las limitaciones.
 
-Abre al final el [solucionario](SOLUCIONARIO_TALLER_CELULAR.md), corrige en otro color
-y escribe tres errores que ahora sabrías detectar. Esta corrección forma parte del
+Revisa al final tus operaciones con la ficha y los ejemplos, y escribe tres errores
+que ahora sabrías detectar. Esta revisión forma parte del
 aprendizaje; si necesitas más tiempo, regístralo en vez de omitir la justificación.

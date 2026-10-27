@@ -354,12 +354,6 @@ save("01_pillow_opencv_cnn.ipynb", [
     diferencia train/validación/test, resultado del reto y una limitación del conjunto pequeño.
     Descarga `metricas_cnn.json` y `particiones.json` desde el panel Archivos de Colab.
 
-    <details><summary>Pistas para comprobar tus respuestas</summary>
-    El giro deja regiones sin píxeles originales; fit recorta mientras resize puede deformar.
-    Canny no identifica especies; marca cambios de intensidad. Si train mejora pero validación
-    empeora, puede haber sobreajuste. Los aumentos aleatorios solo operan durante entrenamiento.
-    Un modelo pequeño y pocas épocas pueden quedar cerca de la referencia: eso también es evidencia.
-    </details>
 
     Fuentes: [Pillow](https://pillow.readthedocs.io/en/stable/reference/Image.html),
     [OpenCV](https://docs.opencv.org/4.x/df/d9d/tutorial_py_colorspaces.html),
@@ -572,13 +566,6 @@ save("02_transfer_inception_resnet152_personalizadas.ipynb", [
     diferencia entre pesos totales y entrenados; concatenación frente a suma; selección sin fuga;
     precisión frente a costo; limitaciones del subconjunto y del preentrenamiento.
 
-    <details><summary>Pistas de autocorrección</summary>
-    Congelar impide actualizar los pesos de la base; `training=False` mantiene sus estadísticas
-    de BatchNorm en inferencia. Concatenar cuatro ramas de f canales produce 4f canales;
-    sumar requiere igualdad de dimensiones. La proyección produce 2f canales compatibles con el atajo.
-    Transferencia aprovecha rasgos aprendidos antes; la red propia tiene que aprenderlos con pocos datos.
-    Un cambio pequeño de métrica con pocos casos no demuestra una mejora generalizable.
-    </details>
 
     **Extensiones fuera de las cuatro horas:** repetir con CIFAR-10; estudiar variación con tres
     semillas; implementar un bloque de reducción; explorar fine-tuning de las últimas capas de
